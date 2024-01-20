@@ -63,6 +63,18 @@ return [
             ]) : [],
         ],
 
+        'oracle' => [
+            'driver' => 'oracle',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '1521'),
+            'database' => env('DB_DATABASE', 'bhrsb'),
+            'username' => env('DB_USERNAME', 'sadm'),
+            'password' => env('DB_PASSWORD', 'sadm'),
+            'service_name' => env('DB_SERVICE_NAME', ''),
+            'charset' => 'AL32UTF8',
+            'prefix' => '',
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
