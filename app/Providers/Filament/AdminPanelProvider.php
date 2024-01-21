@@ -31,9 +31,15 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->plugin(
+                \Hasnayeen\Themes\ThemesPlugin::make()
+            )
+            ->middleware([
+                \Hasnayeen\Themes\Http\Middleware\SetTheme::class
+            ])
+            ->sidebarWidth('18rem')
             ->sidebarFullyCollapsibleOnDesktop()
             ->favicon(asset('favicon.ico'))
-            ->brandName('LPPApp')
             ->brandLogo(asset('logo.png'))
             ->brandLogoHeight('4rem')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
