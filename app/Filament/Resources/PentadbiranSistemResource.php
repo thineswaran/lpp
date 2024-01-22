@@ -12,6 +12,10 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Resources\Tables\Columns;
+use Filament\Resources\Tables\Filter;
+//use Filament\Resources\Tables\Table;
+
 
 class PentadbiranSistemResource extends Resource
 {
@@ -20,6 +24,8 @@ class PentadbiranSistemResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-key';
 
     protected static ?string $navigationLabel = 'Pentadbiran Sistem';
+
+    protected static ?string $title = 'Pentadbiran Sistem';
  
     protected static ?int $navigationSort = 1;
 
@@ -35,13 +41,15 @@ class PentadbiranSistemResource extends Resource
     {
         return $table
             ->columns([
-                //
+                // 
+                //Columns\Text::make('name')->primary(),
+
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                //Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -60,7 +68,8 @@ class PentadbiranSistemResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPentadbiranSistems::route('/'),
+            //'index' => Pages\ListPentadbiranSistems::route('/'),
+            'index' => Pages\PentadbiranSistemMenu::route('/'),
             'create' => Pages\CreatePentadbiranSistem::route('/create'),
             'edit' => Pages\EditPentadbiranSistem::route('/{record}/edit'),
         ];

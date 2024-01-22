@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BelanjawanResource\Pages;
-use App\Filament\Resources\BelanjawanResource\RelationManagers;
-use App\Models\Belanjawan;
+use App\Filament\Resources\AsetTetapResource\Pages;
+use App\Filament\Resources\AsetTetapResource\RelationManagers;
+use App\Models\AsetTetap;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,17 +13,16 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BelanjawanResource extends Resource
+class AsetTetapResource extends Resource
 {
-    protected static ?string $model = Belanjawan::class;
+    protected static ?string $model = AsetTetap::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Belanjawan';
- 
-    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationLabel = 'Aset Tetap';
 
-    //protected static bool $shouldRegisterNavigation = false; //MAKES IT HIDDEN
+    protected static ?int $navigationSort = 9;
+
 
     public static function form(Form $form): Form
     {
@@ -62,22 +61,9 @@ class BelanjawanResource extends Resource
     public static function getPages(): array
     {
         return [
-            //'index' => Pages\ListBelanjawans::route('/'),
-            'index' => Pages\BelanjawanMenu::route('/'),
-
-            'create' => Pages\CreateBelanjawan::route('/create'),
-            'edit' => Pages\EditBelanjawan::route('/{record}/edit'),
+            'index' => Pages\ListAsetTetaps::route('/'),
+            'create' => Pages\CreateAsetTetap::route('/create'),
+            'edit' => Pages\EditAsetTetap::route('/{record}/edit'),
         ];
     }
-
-    public static function label()
-    {
-        return 'Belanjawan';
-    }
-
-    public static function singularLabel()
-    {
-        return 'Belanjawan';
-    }
-
 }
